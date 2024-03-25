@@ -145,6 +145,8 @@ type ZEXPConstraints m =
 
 type ZFuncConstraints m =
   ( ZEXPConstraints m
+  , ZFunc m
+  , ZFunc' m
   )
 
 type AssignableConstraints m =
@@ -171,10 +173,14 @@ type ZACTConstraints m =
   , AltShow m (Value m (Z' m))
   )
 
+type ZBottomConstraints m = (ZBottom m)
+
+
 type Constraints m =
   ( ZEXPConstraints m
   , ZFuncConstraints m
   , AssignableConstraints m
   , DeclarableConstraints m
   , ZACTConstraints m
+  , ZBottomConstraints m
   )
